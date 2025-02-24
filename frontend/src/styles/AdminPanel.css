@@ -1,8 +1,8 @@
 .adminContainer {
     width: 90%;
     max-width: 600px;
-    margin: 30px auto;
-    background: #f7f9f8;
+    margin: 200px auto;
+    background: #e2f2e7;
     padding: 20px;
     border-radius: 6px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -11,10 +11,10 @@
   .adminHeader {
     text-align: center;
     margin-bottom: 20px;
-    color: #d87162;
+    color: #002d0f;
   }
   
-  .formGroup {
+  .adminFormGroup {
     margin-bottom: 15px;
     align-items: center;
   }
@@ -27,9 +27,12 @@
   .checkboxItem {
     margin: 5px 0;
   }
+  input[type="checkbox"] {
+    accent-color: #027c2a; /* Replace with your desired color */
+  }
   
-  .button {
-    background-color: #d87162;
+  .adminButton {
+    background-color: #0f371c; /*00531b    rgb(9, 43, 19)*/
     color: #fff;
     border: none;
     padding: 12px 20px;
@@ -40,8 +43,8 @@
     margin-top: 10px;
   }
   
-  .button:hover {
-    background-color: #d35441;
+  .adminButton:hover {
+    background-color: #002d0f;
   }
 
   /* Responsive Adjustments */
@@ -57,11 +60,11 @@
       margin-bottom: 15px;
     }
   
-    .formGroup {
+    .adminFormGroup {
       margin-bottom: 10px;
     }
   
-    .button {
+    .adminButton {
       padding: 10px 16px;
       font-size: 14px;
     }

@@ -1,0 +1,93 @@
+/* OnboardingPage.css */
+
+.onboarding-page {
+    display: flex;
+    min-height: 100vh;
+    background: #f0f9f5;
+    background: url('../assests/profile2.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: sans-serif;
+    align-items: center;  /* Centers content */
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+
+  /* Left side: welcome/typing text */
+  .welcome-section {
+    flex-grow: 1; /* Allow the left side to expand */
+    min-width: 350px; /* Prevents too much shrinking */
+    max-width: 700px; /* Keeps it readable */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 80px;
+    color: #fff;
+    text-align: left;
+}
+
+  
+  .typing-heading {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    
+    min-width: 30ch;        
+    white-space: nowrap;    
+    overflow: hidden;       
+  }
+  
+  .welcome-subtitle {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    text-shadow: 0 0 20px gray;
+    font-size: 20px;
+    line-height: 150%;
+  }
+  
+  /* Right side: wizard container */
+  .wizard-section {
+    flex-grow: 1;  /* Allow it to adjust dynamically */
+    width: 100%;
+    max-width: 600px; /* Prevent it from becoming too wide */
+    margin: auto 40px;
+    background-color: #e2f2e7;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive: Scale down the wizard section on smaller screens */
+@media (max-width: 768px) {
+    .wizard-section {
+        width: 90%; /* Ensure it resizes properly */
+        margin: 20px auto; /* Reduce margin */
+        max-width: 100%; /* Prevent it from being cut off */
+        padding: 30px; /* Adjust padding */
+    }
+}
+
+  @media (max-width: 768px) {
+    .onboarding-page {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px; /* Add padding to prevent overlap */
+    }
+    
+    .welcome-section {
+      padding: 5px 0px;        /* reduce padding further on small screens */
+      text-align: center;
+    }
+    
+  }
+  @media (max-width: 768px) {
+    .typing-heading {
+      min-width: auto;  /* remove the forced width */
+      white-space: normal;  /* allow wrapping */
+    }
+  }
+
+  
+  
+  
+  

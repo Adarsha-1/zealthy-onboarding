@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 import "../styles/DataTable.css";
+import { getUsers } from "../api/Api";
 
 const DataTable = () => {
 
@@ -11,7 +11,8 @@ const DataTable = () => {
 
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:5000/api/users');
+                const response = await getUsers();
+                // const response = await axios.get('http://127.0.0.1:5000/api/users');
                 if(response.data) {
                     setUsers(response.data)
                 }
@@ -24,7 +25,7 @@ const DataTable = () => {
 
     return (
         <div className="tableContainer">
-            <h2 className="header">Users Data</h2>
+            <h2 className="tableHeader">Users Data</h2>
             <table border="1" className="table">
                 <thead>
                     <th>Email</th>

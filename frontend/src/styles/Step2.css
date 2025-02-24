@@ -30,23 +30,26 @@
   
   .navButtons {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    gap: 10px;
     margin-top: 10px;
   }
   
   .button {
-    background-color: #d87162;
+    background-color: #00531b;
     color: #fff;
     border: none;
     padding: 12px 20px;
-    border-radius: 4px;
+    padding-bottom: 10px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
   }
   
   .button:hover {
-    background-color: #d35441;
+    background-color: #002d0f;
   }
   
   .secondaryButton {
@@ -54,7 +57,8 @@
     color: #fff;
     border: none;
     padding: 12px 20px;
-    border-radius: 4px;
+    padding-bottom: 10px;;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;

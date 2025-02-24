@@ -4,7 +4,7 @@ html, body {
   padding: 0;
   height: 90%;
   width: 100%;
-  background: url('./assests/profile1.png') no-repeat center center fixed;
+  background: url('./assests/profile2.png') no-repeat center center fixed;
   background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
   display: flex;
   flex-direction: column;
@@ -13,8 +13,16 @@ html, body {
 }
 
 
-
-
+.app-header {
+  position: fixed;
+  padding: 10px 20px;
+}
+/* Logo styling */
+.logo {
+  font-size: 3rem;
+  font-weight: bold;
+  color: black;
+}
 
 .App {
   text-align: center;

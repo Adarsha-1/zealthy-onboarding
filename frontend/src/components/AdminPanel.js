@@ -1,7 +1,9 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "../styles/AdminPanel.css";
+import { getConfig, updateConfig } from "../api/Api";
 
 const AdminPanel = () => {
 
@@ -12,7 +14,9 @@ const AdminPanel = () => {
     useEffect(()=> {
         const fetchConfig = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:5000/api/config');
+                 const response = await getConfig();
+                //  const response = await axios.get('http://127.0.0.1:5000/api/config');
+                // const response = await axios.get('https://zealthy-onboarding-c56a.onrender.com/api/config')
                 console.log("Admin config details are: ", response.data);
                 if(response.data) {
                     setPage2Components(response.data.page2);
@@ -45,16 +49,57 @@ const AdminPanel = () => {
         e.preventDefault();
 
         if(page2Components.length === 0 || page3Components.length === 0) {
-            alert('Each page must have atleast one component.');
+            toast.error('Each page must have atleast one component.', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+                });
+            return;
+        }
+
+        // Validate: one page must have exactly 1 component and the other exactly 2.
+        if (
+            !((page2Components.length === 1 && page3Components.length === 2) ||
+            (page2Components.length === 2 && page3Components.length === 1))
+        ) {
+            toast.error("Invalid configuration. Please ensure one page has 1 component and the other has 2 components.", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+                });
             return;
         }
 
         const submit = async (data) => {
             try {
-                const response = await axios.post('http://127.0.0.1:5000/api/config', data);
+                const response = await updateConfig(data);
+                // const response = await axios.post('http://127.0.0.1:5000/api/config', data);
                 console.log("Admin panel configurations response: ", response.data)
                 if(response.data) {
-                    alert('Configuration updated successfully');
+                    //alert('Configuration updated successfully');
+                    toast.success('Configuration updated successfully', {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: false,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                        transition: Bounce,
+                        });
                 }
             } catch(error) {
                 console.error("Error updating configuration", error.message);
@@ -68,11 +113,11 @@ const AdminPanel = () => {
         <div className="adminContainer">
             <h2 className="adminHeader">Admin Page</h2>
             <form onSubmit={handleSubmit}>
-                <div className="formGroup">
+                <div className="adminFormGroup">
                     <h3>Page 2 Components</h3>
                     {availableComponents.map((component) => (
                         <div key={component} className="checkboxItem">
-                            <input type="checkbox" checked={page2Components.includes(component)} onChange={()=>handleConfigChange(2, component)} />
+                            <input type="checkbox" checked={page2Components.includes(component)} onChange={()=>handleConfigChange(2, component)} disabled={page3Components.includes(component)} />
                             <label>{component}</label>
                         </div>
                     ))}
@@ -81,13 +126,14 @@ const AdminPanel = () => {
                     <h3>Page 3 Components</h3>
                     {availableComponents.map((component) => (
                         <div key={component} className="checkboxItem">
-                            <input type="checkbox" checked={page3Components.includes(component)} onChange={()=>handleConfigChange(3, component)} />
+                            <input type="checkbox" checked={page3Components.includes(component)} onChange={()=>handleConfigChange(3, component)} disabled={page2Components.includes(component)} />
                             <label>{component}</label>
                         </div>
                     ))}
                 </div>
-                <button type="submit" className="button">Save Configurations</button>
+                <button type="submit" className="adminButton">Save Configurations</button>
             </form>
+            <ToastContainer />
         </div>
     )
 

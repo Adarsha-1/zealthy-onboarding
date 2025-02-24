@@ -5,15 +5,18 @@
     max-width: 600px;
     margin: 30px auto;
     background-color: #f7f9f8; /*b5e0db */
+    background-color: #e2f2e7;
     padding: 20px;
     border-radius: 6px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    
   }
   
   .header {
     text-align: center;
     margin-bottom: 20px;
-    color: #d87162;
+    /* color: #d87162; */
+    color: #002d0f;
   }
   
   /* Step Indicator Styles */
@@ -37,7 +40,8 @@
   }
   
   .activeStep {
-    background-color: #d87162;
+    /* background-color: #d87162; */
+    background-color: #00531b;
     color: #fff;
   }
 

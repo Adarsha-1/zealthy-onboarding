@@ -1,18 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import OnboardingWizard from './components/OnboardingWizard';
 import AdminPanel from './components/AdminPanel';
 import DataTable from './components/DataTable';
+import OnboardingPage from './components/OnbiardingPage';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes >
-        <Route path='/' element={<OnboardingWizard />} />
-        <Route path='/admin' element={<AdminPanel />} />
-        <Route path='/data' element={<DataTable />} />
-      </Routes>
+      <div className='app-container'>
+        <header className='app-header'>
+          <div className='logo'>Zealthy</div>
+        </header>
+      </div>
+      <main className='app-main'>
+        <Routes >
+          <Route path='/' element={<OnboardingPage />} />
+          <Route path='/admin' element={<AdminPanel />} />
+          <Route path='/data' element={<DataTable />} />
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }

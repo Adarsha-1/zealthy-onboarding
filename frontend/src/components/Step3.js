@@ -1,48 +1,27 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast, Bounce } from "react-toastify";
 
 import "../styles/Step2.css";
+import { getConfig } from "../api/Api";
 
-const Step3 = ({onSubmit, onBack, formData, updateFormData}) => {
+const Step3 = ({onSubmit, onBack, formData, updateFormData, isValidAge}) => {
 
     const [config, setConfig] = useState([]);
-    // const [aboutMe, setAboutMe] = useState(formData.about_me || '');
-    // const [streetAddress, setStreetAddress] = useState(formData.street_address || '');
-    // const [city, setCity] = useState(formData.city || '');
-    // const [state, setState] = useState(formData.state || '');
-    // const [zipCode, setZipCode] = useState(formData.zip_code || '');
-    // const [birthDate, setBirthDate] = useState(formData.birthdate || '');
 
     useEffect(() => {
-        const getConfig = async() => {
+        const getConfiguration = async() => {
             try {
-                const response = await axios.get('http://127.0.0.1:5000/api/config')
+                const response = await getConfig();
+                // const response = await axios.get('http://127.0.0.1:5000/api/config')
                 console.log("Response from API is: ", response.data)
                 setConfig(response.data.page3);
             } catch(error) {
                 console.log("Error fetching config details: ", error.message);
             }
         }
-        getConfig();
+        getConfiguration();
     }, []);
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     let data = {};
-    //     if(config.includes('about_me')) {
-    //         data.about_me = aboutMe;
-    //     } 
-    //     if(config.includes('address')) {
-    //         data.street_address = streetAddress;
-    //         data.city = city;
-    //         data.state = state;
-    //         data.zip_code = zipCode;
-    //     } 
-    //     if(config.includes('birthdate')) {
-    //         data.birthdate = birthDate;
-    //     }
-    //     onSubmit(data);
-    // }
 
     const handleChange = (field, value) => {
         updateFormData({ [field]: value });
@@ -51,7 +30,29 @@ const Step3 = ({onSubmit, onBack, formData, updateFormData}) => {
     const handleSubmit1 = (e) => {
         e.preventDefault();
         // Simply call onNext – the updated formData is already in the parent
-        onSubmit(updateFormData);
+        console.log("Checking birthdate: ");
+        if (config.includes('birthdate') && formData.birthdate) {
+            console.log("Entered if case. Age is: ", formData.birthdate)
+                    if(!isValidAge(formData.birthdate)) {
+                        console.log("Entered valig age case")
+                        toast.warn("You must be at least 12 years old.", {
+                            position: "top-center",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                            transition: Bounce,
+                            });
+                    } else {
+                        onSubmit(updateFormData);
+                    }
+        } else {
+            onSubmit(updateFormData);
+        }
+        
     };
 
     return (
@@ -88,8 +89,11 @@ const Step3 = ({onSubmit, onBack, formData, updateFormData}) => {
                     <input className="input" type="date" value={formData.birthdate || ''} onChange={(e)=>handleChange("birthdate",e.target.value)} />
                 </div>
             )}
-            <button type="button" onClick={onBack} className="secondaryButton">Back</button>
-            <button type="submit" className="button">Submit</button>
+            <div className="navButtons">
+                <button type="button" onClick={onBack} className="secondaryButton">Back</button>
+                <button type="submit" className="button">Submit</button>
+            </div>
+            <ToastContainer />
         </form>
     )
 }
