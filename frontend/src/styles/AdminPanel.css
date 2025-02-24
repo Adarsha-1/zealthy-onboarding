@@ -1,0 +1,71 @@
+.adminContainer {
+    width: 90%;
+    max-width: 600px;
+    margin: 30px auto;
+    background: #f7f9f8;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .adminHeader {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #d87162;
+  }
+  
+  .formGroup {
+    margin-bottom: 15px;
+    align-items: center;
+  }
+  
+  .checkboxGroup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .checkboxItem {
+    margin: 5px 0;
+  }
+  
+  .button {
+    background-color: #d87162;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .button:hover {
+    background-color: #d35441;
+  }
+
+  /* Responsive Adjustments */
+@media (max-width: 600px) {
+    .adminContainer {
+      width: 95%;
+      margin: 10px auto;
+      padding: 10px;
+    }
+  
+    .header {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+  
+    .formGroup {
+      margin-bottom: 10px;
+    }
+  
+    .button {
+      padding: 10px 16px;
+      font-size: 14px;
+    }
+  }
+
+  
+  
