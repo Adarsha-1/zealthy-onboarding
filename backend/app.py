@@ -7,7 +7,8 @@ app = Flask(__name__)
 CORS(app)
 
 # Configure SQLite for simplicity.
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///zealthy.db'
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///zealthy.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
@@ -24,6 +25,10 @@ with app.app_context():
 #registering the routes
 import routes
 routes.register_routes(app)
+
+@app.route("/")
+def home():
+    return "Flask app running on Render!"
 
 if __name__ == '__main__':
     app.run(debug = True)
