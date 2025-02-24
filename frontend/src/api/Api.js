@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = process.env.API_URL || "http://127.0.0.1:5000";
+const BASE_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:5000";
 
 export const createUser = (email, password) => {
     return axios.post(`${BASE_URL}/api/user`, {email, password});
