@@ -10,6 +10,7 @@ const AdminPanel = () => {
     const [page2Components, setPage2Components] = useState([]);
     const [page3Components, setPage3Components] = useState([]);
     const availableComponents = ['about_me', 'address', 'birthdate'];
+    
 
     useEffect(()=> {
         const fetchConfig = async () => {

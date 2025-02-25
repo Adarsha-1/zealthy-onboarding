@@ -16,12 +16,17 @@ html, body {
 .app-header {
   position: fixed;
   padding: 10px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
 }
-/* Logo styling */
+
 .logo {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   color: black;
+  text-align: center;
 }
 
 .App {
@@ -60,5 +65,16 @@ html, body {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .app-header {
+    padding: 5px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
   }
 }

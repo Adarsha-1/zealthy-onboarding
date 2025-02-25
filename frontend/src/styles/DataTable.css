@@ -1,53 +1,71 @@
-/* DataTable.module.css */
-
 .tableContainer {
-    width: 90%;
-    max-width: 800px;
-    margin: 200px auto;
-    background: #e2f2e7;
-    padding: 20px;
-    justify-items: center;
-    border-radius: 6px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    overflow-x: auto; /* Enables horizontal scrolling on small screens */
-  }
-  
-  .tableHeader {
-    text-align: center;
-    margin-bottom: 20px;
-    /* color: #007bff; */
-  }
-  
+  width: 100%;
+  max-width: 1000px;
+  margin: 150px auto;
+  background: #e2f2e7;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Allow horizontal scrolling */
+}
+
+.tableHeader {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.table th {
+  background-color: #002d0f;
+  color: #fff;
+}
+
+/* Optional: Adjust layout for smaller screens */
+@media screen and (max-width: 768px) {
   .table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 600px; /* Ensures table columns have enough space */
+    min-width: 100%; /* Allow table to shrink */
   }
-  
-  .table th,
-  .table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
+  .table th, .table td {
+    padding: 8px; /* Reduce padding for smaller screens */
   }
-  
-  .table th {
-    background-color: #002d0f;
-    color: #fff;
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 600px) {
-    .tableContainer {
-      width: 95%;
-      margin: 10px auto;
-      padding: 10px;
-    }
-  
-    .table th,
-    .table td {
-      padding: 8px;
-      font-size: 14px;
-    }
-  }
-  
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 10px;
+}
+
+.pagination li {
+  margin: 0 5px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: #002d0f;
+}
+
+.pagination li.active {
+  background-color: #002d0f;
+  color: white;
+}
+
+.pagination li:hover {
+  background-color: #e2f2e7;
+}
