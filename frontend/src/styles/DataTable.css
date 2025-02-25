@@ -34,7 +34,7 @@
   color: #fff;
 }
 
-/* Optional: Adjust layout for smaller screens */
+/* Adjust layout for smaller screens */
 @media screen and (max-width: 768px) {
   .table {
     min-width: 100%; /* Allow table to shrink */

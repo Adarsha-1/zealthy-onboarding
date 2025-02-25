@@ -14,7 +14,7 @@ const Step1 = ({onNext, formData}) => {
 
     const validatePassword = (password) => {
         // Password must be at least 8 characters and include at least one uppercase letter,
-        // one lowercase letter, and one digit.
+        // one lowercase letter, and one digit and special character.
         const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
         return regex.test(password);
     };
@@ -26,7 +26,7 @@ const Step1 = ({onNext, formData}) => {
             return;
         }
       
-          // Validate password against our criteria
+          // Validate password against criteria
         if (!validatePassword(password)) {
             setPasswordError(
             "Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character."

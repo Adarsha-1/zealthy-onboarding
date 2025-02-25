@@ -16,7 +16,7 @@ const OnboardingPage = () => {
               "We help you stay healthy!",
               "Let's get started..."
             ]}
-            loop={true}      // or false if you want it to type once
+            loop={true}      // or false if you it to type once
             cursor
             cursorStyle="_"
             typeSpeed={70}

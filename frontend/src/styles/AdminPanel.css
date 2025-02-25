@@ -28,7 +28,7 @@
     margin: 5px 0;
   }
   input[type="checkbox"] {
-    accent-color: #027c2a; /* Replace with your desired color */
+    accent-color: #027c2a; 
   }
   
   .adminButton {
