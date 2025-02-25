@@ -25,6 +25,7 @@ The project is built with **React (frontend)** and **Flask with SQLite/PostgreSQ
 
 ---
 ## **Project Structure**
+```plaintext
 zealthy-onboarding/
 │── backend/                 # Flask backend
 │   │── app.py               # Main Flask app
@@ -43,7 +44,7 @@ zealthy-onboarding/
 │── README.md                # Documentation
 │── .gitignore               # Ignore unnecessary files
 
-
+```
 ---
 
 ## **Installation & Setup**
